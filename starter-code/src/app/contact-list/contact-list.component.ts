@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import contactList from '../contacts';
+import { SingleContactComponent } from '../single-contact/single-contact.component'
+
 
 @Component({
   selector: 'app-contact-list',
@@ -21,7 +23,13 @@ export class ContactListComponent implements OnInit {
     this.contacts = contactList;
   }
 
-  addContact(){
+  deleteTheContact(entireContact){
+    const index = this.contacts.indexOf(entireContact);
+    this.contacts.splice(index, 1);
+  }
+
+
+  addContact() {
     console.log("Add contact has been called");
     const createContact = {
       name: this.newContact.name,

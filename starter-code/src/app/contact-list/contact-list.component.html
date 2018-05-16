@@ -19,10 +19,6 @@
 
 
 <div *ngFor="let contactList of contacts">
-  <h3>{{contactList.name}}</h3>
-  <ul>
-    <li>-{{contactList.email}}</li>
-    <li>-{{contactList.phoneNumber}}</li>
-  </ul>
-  <img [src]="contactList.image">
+  <app-single-contact [oneSingleContact]='contactList' (contactBeingDeleted)="deleteTheContact($event)">  </app-single-contact>
+    <!-- If its input use Brackets & if output use Parens-->
 </div>
